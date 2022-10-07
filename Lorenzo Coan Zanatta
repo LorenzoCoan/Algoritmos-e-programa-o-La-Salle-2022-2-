@@ -1,0 +1,116 @@
+// Github:LorenzoCoan Calculadora de adição, subtração, divisão, multiplicação, raíz quadrada, potência desenvolvida na Linguagem C.
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  // Declaração de váriaveis.
+  int opcao;
+  float n1, n2, calculo;
+
+  // Informações do Desenvolvedor.
+  printf("Nome: Lorenzo Coan Zanatta. \n");
+  printf("Curso: Análise e Desenvolvimento de Sistemas. \n");
+  printf("Universidade: LaSalle Canoas. \n");
+  printf("Número de matrícula: 202120322.\n");
+  printf("Calculadora em linguagem C.\n\n\n");
+
+  do {
+    // Mostra na tela o menu de operação a ser realizados.
+    printf("\nSelecione a operação que deseja realizar:\n");
+    printf("1. Adição\n2. Subtração\n3. Divisão\n4. Multiplicação\n5. Raíz "
+           "quadrada\n6. Potência.\n7. Sair\nDigite a opção: ");
+    scanf("%d", &opcao);
+
+    switch (opcao) {
+    case 1:
+      // Realiza a soma dos números.
+      printf("\n------- Adição -------");
+      printf("\nDigite o 1° número: ");
+      scanf("\n%f", &n1);
+      printf("Digite o 2° número: ");
+      scanf("\n%f", &n2);
+
+      calculo = n1 + n2;
+      printf("Resultado: %0.2f\n", calculo);
+      printf("----------------------\n");
+      break;
+    case 2:
+      // Realiza a subtração dos números.
+      printf("\n------ Subtração ------");
+      printf("\nDigite o 1° número: ");
+      scanf("\n%f", &n1);
+      printf("Digite o 2° número: ");
+      scanf("\n%f", &n2);
+
+      calculo = n1 - n2;
+      printf("Resultado: %0.2f\n", calculo);
+      printf("-----------------------\n");
+      break;
+    case 3:
+      // Realiza a divisão dos números.
+      printf("\n------- Divisão -------");
+      inicio_operacao:
+      printf("\nDigite o 1° número: ");
+      scanf("\n%f", &n1);
+      printf("Digite o 2° número: ");
+      scanf("\n%f", &n2);
+
+      if (n1 <= 0 || n2 <= 0) // Verifica se os números são menores que 0.
+      {
+        printf("Não é possível dividir por zero ou números negativos\n");
+        goto inicio_operacao;
+      }
+      calculo = n1 / n2;
+      printf("Resultado: %0.2f\n", calculo);
+      printf("-----------------------\n");
+      break;
+    case 4:
+      // Realiza a multiplicação dos números.
+      printf("\n---- Multiplicação ----");
+      printf("\nDigite o 1° número: ");
+      scanf("\n%f", &n1);
+      printf("Digite o 2° número: ");
+      scanf("\n%f", &n2);
+
+      calculo = n1 * n2;
+      printf("Resultado: %0.2f\n", calculo);
+      printf("-----------------------\n");
+      break;
+    case 5:
+      // Realiza o cálculo da raíz quadrada do número digitado.
+      printf("\n---- Raíz Quadrada ----");
+      printf("\nDigite o 1° número: ");
+      scanf("\n%f", &n1);
+
+      if (n1 < 0) // Verifica se o número é menor que 0.
+      {
+        printf("Não existe Raiz de números negativos.\n");
+      }
+
+      calculo = sqrt(n1);
+      printf("Raiz: %0.2f\n", calculo);
+      printf("-----------------------\n");
+      break;
+    case 6:
+      // Realiza o cálculo de potência de acordos com os números digitados.
+      printf("\n------ Potência ------");
+      printf("\nDigite o 1° número: ");
+      scanf("\n%f", &n1);
+      printf("Escolha a Potencia a ser elevada: ");
+      scanf("\n%f", &n2);
+
+      calculo = pow(n1, n2);
+      printf("Potencia: %0.2f\n", calculo);
+      printf("-----------------------\n");
+      break;
+    case 7:
+      // Informa o encerramento do programa.
+      printf("\nOperação Finalizada!");
+      break;
+    default:
+      // Informa que a opção digitada é inválida.
+      printf("\nOpção inválida!\n");
+    }
+  } while (opcao != 7);
+}
